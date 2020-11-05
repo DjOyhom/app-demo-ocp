@@ -24,6 +24,7 @@ app.get('/', function (req, res) {
         res.sendFile(path.join(__dirname + '/index.html'));
     }else{
         res.status(500);
+        res.end()
     }
 });
 
@@ -32,6 +33,7 @@ app.get('/version', function (req, res) {
         res.send({version: "0.0.1"});
     }else{
         res.status(500);
+        res.end()
     }
 });
 
@@ -40,6 +42,7 @@ app.get('/metrics', function (req, res) {
         res.send({nose: "que metricas quieren los pibes"});
     }else{
         res.status(500);
+        res.end()
     }
 });
 
@@ -60,7 +63,8 @@ app.post('/readyz/enable', function (req, res) {
 
 app.post('/readyz/enable/:seconds', function (req, res) {
     app_status = 0;
-    res.send("");
+    res.status(204);
+    res.end()
     enable_app(req.params.seconds);
 });
 
@@ -71,9 +75,12 @@ app.post('/readyz/disable', function (req, res) {
 
 app.post('/echo', function (req, res) {
     if(app_status == 1){
+        console.log(req);
         res.status(204);
+        res.end()
     }else{
         res.status(500);
+        res.end()
     }
 });
 
@@ -82,6 +89,7 @@ app.get('/env', function (req, res) {
         res.send(process.env);
     }else{
         res.status(500);
+        res.end()
     }
 });
 
@@ -90,6 +98,7 @@ app.get('/headers', function (req, res) {
         res.send(req.headers);
     }else{
         res.status(500);
+        res.end()
     }
 });
 
