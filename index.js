@@ -21,7 +21,7 @@ var app_status = 1;
 
 app.get('/', function (req, res) {
     if(app_status == 1){
-        res.sendFile(path.join(__dirname + '/index.html'));
+        res.sendFile(path.join(__dirname + '/web/index.html'));
     }else{
         res.status(500);
         res.end()
