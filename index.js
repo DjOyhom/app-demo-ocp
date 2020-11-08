@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.use(express.static(path.join(__dirname, '/')));
+app.use(express.static(path.join(__dirname, '/web/')));
 
 const swaggerUi = require('swagger-ui-express'),
 swaggerDocument = require('./swagger.json');
