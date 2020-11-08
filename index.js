@@ -105,7 +105,7 @@ app.get('/headers', function (req, res) {
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.listen(3000, function () {
+app.listen(8080, function () {
     console.log('Example app listening on port 3000!');
 });
 
