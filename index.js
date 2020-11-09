@@ -109,7 +109,7 @@ app.get('/headers', function (req, res) {
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(8080, function () {
-    console.log('Example app asdsajdsajkjdhsahdjksahlistening on port 8080!');
+    console.log('Example app on port 8080!');
 });
 
 function enable_app(seconds) {
