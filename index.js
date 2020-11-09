@@ -39,7 +39,7 @@ app.get('/version', function (req, res) {
 
 app.get('/metrics', function (req, res) {
     if(app_status == 1){
-        res.send({nose: "que metricas quieren los pibes"});
+        res.send({metrics: "some metrics"});
     }else{
         res.status(500);
         res.end()
@@ -50,8 +50,10 @@ app.get('/healthz', function (req, res) {
     if(app_status == 1){
         res.send({status: "ok"});
     }else if(app_status == 0){
+        res.status(501);
         res.send({status: "loading"});
     }else{
+        res.status(500);
         res.send({status: "bad"});
     }
 });
@@ -70,6 +72,7 @@ app.post('/readyz/enable/:seconds', function (req, res) {
 
 app.post('/readyz/disable', function (req, res) {
     app_status = -1;
+    res.status(500);
     res.send({status: "bad"});
 });
 
@@ -106,7 +109,7 @@ app.get('/headers', function (req, res) {
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(8080, function () {
-    console.log('Example app asdsajdsajkjdhsahdjksahlistening on port 3000!');
+    console.log('Example app asdsajdsajkjdhsahdjksahlistening on port 8080!');
 });
 
 function enable_app(seconds) {
