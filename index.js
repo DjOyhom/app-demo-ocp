@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.use(express.static(path.join(__dirname, '/webs/Bethany/')));
+app.use(express.static(path.join(__dirname, '/webs/Delicious/')));
 
 const swaggerUi = require('swagger-ui-express'),
 swaggerDocument = require('./swagger.json');
@@ -21,7 +21,7 @@ var app_status = 1;
 
 app.get('/', function (req, res) {
     if(app_status == 1){
-        res.sendFile(path.join(__dirname + '/webs/Bethany/index.html'));
+        res.sendFile(path.join(__dirname + '/webs/Delicious/index.html'));
     }else{
         res.status(500);
         res.end()
